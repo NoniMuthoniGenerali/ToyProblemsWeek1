@@ -1,6 +1,4 @@
-let score =  30
-let grade;
-
+function studentGradeGenerator(score) {
 if (score > 79){
     return "A"
 }
@@ -16,4 +14,4 @@ else if (score >= 40){
 else {
     return "E"
 }
-console.log(letter);
+console.log(letter);}

@@ -1,20 +1,19 @@
-// convert dynamic user input to float
+
 let totalBasicSalary = parseFloat(prompt("enter basic salary amount"));
 let totalBenefits = parseFloat(prompt("enter benefits amount"));
 
-// total taxable income/gross pay
 const calculateGrossSalary = (basicSalary, benefits) => {
   return basicSalary + benefits;
 };
 
-// income tax per month/paye
+
 const calculatePaye = (basicSalary, benefits) => {
   let totalTaxableIncome = calculateGrossSalary(basicSalary, benefits);
   let totalTax = 0;
   let personalRelief = 2400;
   let netTax = 0;
 
-  //   check tax bracket(s) to apply
+
   if (totalTaxableIncome <= 24000) {
     let firstBracket = totalTaxableIncome * 0.1;
     totalTax = firstBracket;
@@ -63,12 +62,11 @@ const calculatePaye = (basicSalary, benefits) => {
   }
 };
 
-// nhif deduction
 const calculateNhif = (basicSalary, benefits) => {
   let grossPay = calculateGrossSalary(basicSalary, benefits);
   let nhif = 0;
 
-  //   check nhif deduction amount to apply
+ 
   if (grossPay <= 5999) {
     nhif = 150;
     return nhif;
@@ -123,13 +121,12 @@ const calculateNhif = (basicSalary, benefits) => {
   }
 };
 
-// nssf deduction
+
 const calculateNssf = (basicSalary, benefits) => {
   let nssf = 0.05 * calculateGrossSalary(basicSalary, benefits);
   return nssf;
 };
 
-// net = gross - (paye + nhif + nssf)
 const calculateNetSalary = (gross, paye, nhif, nssf) => {
   let netSalary = gross - (paye + nhif + nssf);
 
